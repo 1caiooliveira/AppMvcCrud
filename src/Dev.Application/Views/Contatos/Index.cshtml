@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Dev.Application.ViewModels.ContatoViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Fornecedores";
+}
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Novo Contato</a>
+</p>
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoneResidencial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefoneResidencial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
